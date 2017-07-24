@@ -1,0 +1,115 @@
+FORMAT: 1A
+HOST: http://localhost:3000/ambulances
+
+# Ambulance
+
+Ambulance API is a API where people can get info about ambulances of Rajshahi University Medical Center
+
+### Installation
+
+#####1.Make sure you have installed rails properly on your device.
+#####2.Download or clone the code from https://github.com/eksumon/Ambulance-API.git
+#####3.Open a command window at the document root of the API
+#####4.Then run 'bundle install' command.
+#####5.Then run 'rails db:migrate RAILS_ENV=development'command.
+#####6.After that run 'rails server'command.
+#####7.Now open postman for doing the operation get/post/patch/delete.
+#####8.Write http://localhost:3000/ambulances and send your request.
+
+### Authorization
+
+##### * API needs authorization with access token to GET/POST/UPDATE/DELETE. The access token will be provided by administration of the API.
+##### * Access token will be required for every request to server.
+##### * Go to "header" section of postman and add "Authorization" as key value and " Token token="your token here" ".
+
+Now you are authorized and can proceed to basic CRUD in API.
+## Questions Collection [/questions]
+
+### List of all Ambulances  [GET]
+
+Use this option to get a list with details information about all ambulances.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "route": "Rajshahi - Natore",
+                "availability": "Available",
+                "contact_number": "01700-000000",
+                "created_at": "2017-07-23T19:48:20.059Z",
+                "updated_at": "2017-07-23T19:48:20.059Z"
+            }
+        ]
+
+### Add new Ambulance info [POST]
+
+Admin can add new student info usnig this option.
+
++ Request (application/json)
+
+        {
+            "id": 2,
+            "route": "Rajshahi - Pabna",
+            "availability": "Available",
+            "contact_number": "01900-000000",
+            "created_at": "2017-07-24T02:09:44.486Z",
+            "updated_at": "2017-07-24T02:09:44.486Z"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: http://localhost:3000/ambulances/2
+
+    + Body
+
+            {
+                "id": 2,
+                "route": "Rajshahi - Pabna",
+                "availability": "Available",
+                "contact_number": "01900-000000",
+                "created_at": "2017-07-24T02:09:44.486Z",
+                "updated_at": "2017-07-24T02:09:44.486Z"
+            }
+### Update a Ambulance info [PUT]
+
+Authorized admin can add new Ambulance info usnig this option.
+
++ Request (application/json)
+
+        {
+            "id": 2,
+            "route": "Rajshahi - Pabna",
+            "availability": "Available",
+            "contact_number": "01900-000000",
+            "created_at": "2017-07-24T02:09:44.486Z",
+            "updated_at": "2017-07-24T02:09:44.486Z"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: http://localhost:3000/ambulances/2
+
+    + Body
+
+            {
+                "id": 2,
+                "route": "Rajshahi - Pabna",
+                "availability": "Available",
+                "contact_number": "01900-000000",
+                "created_at": "2017-07-24T02:09:44.486Z",
+                "updated_at": "2017-07-24T02:09:44.486Z"
+            }
+### Delete a Ambulance info [DELETE]
+
+Admin can Delete a Ambulance info usnig this option.
+
++ Request (application/json)
+
+        Location: http://localhost:3000/ambulances/2
+        
++ Response 201 (application/json)
